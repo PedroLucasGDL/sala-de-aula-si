@@ -7,9 +7,18 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class LoginService {
   constructor(private auth: AngularFireAuth) {}
 
-  criarNovaConta(email: string, senha: string) {
+  async criarNovaConta(email: string, senha: string, nome: string) {
     console.log('criando novo usuairo');
-    this.auth.createUserWithEmailAndPassword(email, senha);
+    return this.auth
+      .createUserWithEmailAndPassword(email, senha)
+      .then((dados) => {
+        dados.user?.updateProfile({
+          displayName: nome,
+        });
+        return new Promise((resolvida, rejeitada) => {
+          resolvida(true);
+        });
+      });
   }
 
   resetarSenha(email: string) {

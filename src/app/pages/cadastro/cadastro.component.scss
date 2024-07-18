@@ -1,0 +1,24 @@
+.geral {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 80px);
+}
+.formulario {
+  background-color: #eee;
+  width: 50%;
+  padding: 1.5em;
+  border-radius: 10px;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (max-width: 800px) {
+    width: 90%;
+  }
+}
+.bottom {
+  padding: 1em;
+  text-align: right;
+}
