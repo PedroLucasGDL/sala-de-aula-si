@@ -1,37 +1,5 @@
 <mat-toolbar>
-  <span>My Application</span>
+  <span>Sala de Aula</span>
 </mat-toolbar>
 
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Email:</mat-label>
-    <input
-      type="email"
-      matInput
-      [formControl]="emailFormControl"
-      placeholder="Ex. aluno@iffar.edu.br"
-    />
-
-    @if (emailFormControl.hasError('email') &&
-    !emailFormControl.hasError('required')) {
-    <mat-error>Endereço de e-email inválido</mat-error>
-    } @if (emailFormControl.hasError('required')) {
-    <mat-error>Email is <strong>Campo obrigatório</strong></mat-error>
-    }
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Senha:</mat-label>
-    <input type="password" matInput [formControl]="senhaFormControl" />
-
-    @if (senhaFormControl.hasError('min')) {
-    <mat-error>A senha deve ter 6 caracteres</mat-error>
-    } @if (senhaFormControl.hasError('required')) {
-    <mat-error><strong>Campo obrigatório</strong></mat-error>
-    }
-  </mat-form-field>
-  <button (click)="autenticar()" mat-fab extended>
-    <mat-icon>login</mat-icon>
-    Disabled
-  </button>
-</form>
-{{ mensgem }}
+<router-outlet></router-outlet>
