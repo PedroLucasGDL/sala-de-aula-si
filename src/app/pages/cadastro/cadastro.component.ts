@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppButtonComponent } from '../../components/app-button/app-button.component';
+import { AppInputComponent } from '../../components/app-input/app-input.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -24,22 +25,18 @@ import { AppButtonComponent } from '../../components/app-button/app-button.compo
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     AppButtonComponent,
+    AppInputComponent,
+    AppInputComponent,
   ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss',
 })
 export class CadastroComponent {
   form = new FormGroup({
-    nome: new FormControl('teste', [Validators.required]),
-    email: new FormControl('teste@tes.com', [
-      Validators.email,
-      Validators.required,
-    ]),
-    senha: new FormControl('12345', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
-    confSenha: new FormControl('123123', [
+    nome: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required]),
+    senha: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    confSenha: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
     ]),

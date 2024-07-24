@@ -1,53 +1,17 @@
 <div class="geral">
   <div class="formulario">
     <form [formGroup]="form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Nome:</mat-label>
-        <input type="text" matInput formControlName="nome" />
-
-        <mat-error>Endereço de e-email inválido</mat-error>
-
-        <mat-error>Email is <strong>Campo obrigatório</strong></mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Email:</mat-label>
-        <input
-          type="email"
-          matInput
-          placeholder="Ex. aluno@iffar.edu.br"
-          formControlName="email"
-        />
-
-        <mat-error>Endereço de e-email inválido</mat-error>
-
-        <mat-error>Email is <strong>Campo obrigatório</strong></mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Senha:</mat-label>
-        <input type="password" matInput formControlName="senha" />
-
-        <mat-error>A senha deve ter 6 caracteres</mat-error>
-
-        <mat-error><strong>Campo obrigatório</strong></mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Conf. senha:</mat-label>
-        <input type="password" matInput formControlName="confSenha" />
-
-        <mat-error>A senha deve ter 6 caracteres</mat-error>
-
-        <mat-error><strong>Campo obrigatório</strong></mat-error>
-      </mat-form-field>
-      <!-- <button mat-fab extended (click)="cadastrar()">
-        <mat-icon>check</mat-icon>
-        Cadastrar
-      </button> -->
+      <app-input label="Nome" />
+      <app-input label="E-mail" />
+      <app-input label="Senha" type="password" />
+      <app-input label="Conf. Senha" />
       <app-button
+        expanded="false"
         [loading]="login.loading"
         icon="check"
         label="Cadastrar"
         (onClick)="cadastrar()"
-      ></app-button>
+      />
     </form>
     <div class="bottom">
       <a href="/novaconta" mat-button>

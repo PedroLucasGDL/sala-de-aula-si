@@ -1,0 +1,14 @@
+<mat-form-field>
+  <mat-label>{{ label }}:</mat-label>
+  <input
+    [type]="type"
+    matInput
+    placeholder="Ex. aluno@iffar.edu.br"
+    formControlName="email"
+  />
+  <!-- @if ( form.get('email')?.errors?.['required'] ) { -->
+  <mat-error><strong>Campo obrigatório</strong></mat-error>
+  <!-- } @if ( form.get('email')?.errors?.['email'] ) { -->
+  <mat-error>Endereço de e-email inválido</mat-error>
+  <!-- } -->
+</mat-form-field>

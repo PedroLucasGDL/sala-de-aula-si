@@ -30,7 +30,10 @@ export class LoginService {
   }
 
   autenticar(email: string, senha: string): Promise<any> {
-    return this.auth.signInWithEmailAndPassword(email, senha);
+    this._loading = true;
+    return this.auth
+      .signInWithEmailAndPassword(email, senha)
+      .finally(() => (this._loading = false));
   }
 
   public get loading() {

@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  booleanAttribute,
+  Component,
+  EventEmitter,
+  input,
+  Input,
+  Output,
+} from '@angular/core';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -13,8 +20,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './app-button.component.scss',
 })
 export class AppButtonComponent {
-  @Input()
-  expanded = true;
+  expanded = input(true, {
+    transform: booleanAttribute,
+  });
   @Input()
   label = '';
   @Input()
