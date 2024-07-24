@@ -5,10 +5,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root',
 })
 export class LoginService {
+  private _loading: boolean = false;
+
   constructor(private auth: AngularFireAuth) {}
 
   async criarNovaConta(email: string, senha: string, nome: string) {
     console.log('criando novo usuairo');
+    this._loading = true;
     return this.auth
       .createUserWithEmailAndPassword(email, senha)
       .then((dados) => {
@@ -18,7 +21,8 @@ export class LoginService {
         return new Promise((resolvida, rejeitada) => {
           resolvida(true);
         });
-      });
+      })
+      .finally(() => (this._loading = false));
   }
 
   resetarSenha(email: string) {
@@ -27,5 +31,9 @@ export class LoginService {
 
   autenticar(email: string, senha: string): Promise<any> {
     return this.auth.signInWithEmailAndPassword(email, senha);
+  }
+
+  public get loading() {
+    return this._loading;
   }
 }

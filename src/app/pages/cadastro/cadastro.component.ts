@@ -12,6 +12,7 @@ import { LoginService } from '../../services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AppButtonComponent } from '../../components/app-button/app-button.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -22,6 +23,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatButtonModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    AppButtonComponent,
   ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss',
@@ -42,15 +44,18 @@ export class CadastroComponent {
       Validators.minLength(6),
     ]),
   });
+
   constructor(
-    private login: LoginService,
+    protected login: LoginService,
     private snack: MatSnackBar,
     private router: Router
   ) {}
 
   cadastrar() {
+    console.log('click');
     if (this.form.valid) {
       const { nome, email, senha, confSenha } = this.form.value;
+
       this.login
         .criarNovaConta(email!, senha!, nome!)
         .then((resposxta) => {

@@ -38,17 +38,21 @@
 
         <mat-error><strong>Campo obrigatório</strong></mat-error>
       </mat-form-field>
-      <button mat-fab extended (click)="cadastrar()">
+      <!-- <button mat-fab extended (click)="cadastrar()">
         <mat-icon>check</mat-icon>
         Cadastrar
-      </button>
+      </button> -->
+      <app-button
+        [loading]="login.loading"
+        icon="check"
+        label="Cadastrar"
+        (onClick)="cadastrar()"
+      ></app-button>
     </form>
     <div class="bottom">
       <a href="/novaconta" mat-button>
         <mat-icon>add</mat-icon>
         Nova conta
-
-        <mat-spinner></mat-spinner>
       </a>
     </div>
   </div>
