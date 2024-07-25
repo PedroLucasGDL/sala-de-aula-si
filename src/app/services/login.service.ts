@@ -39,4 +39,7 @@ export class LoginService {
   public get loading() {
     return this._loading;
   }
+  public isLoggin() {
+    return this.auth.currentUser != null;
+  }
 }

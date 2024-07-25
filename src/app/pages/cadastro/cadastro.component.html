@@ -1,10 +1,28 @@
 <div class="geral">
   <div class="formulario">
     <form [formGroup]="form">
-      <app-input label="Nome" />
-      <app-input label="E-mail" />
-      <app-input label="Senha" type="password" />
-      <app-input label="Conf. Senha" />
+      <app-input
+        label="Nome"
+        [control]="form.controls['nome']"
+        chaveErro="required"
+        msgErro="O nome deve ser preenchido"
+      />
+      <app-input
+        label="E-mail"
+        placeholder="Ex. aluno@iffar.edu.br"
+        [control]="form.controls['email']"
+      />
+      <app-input
+        label="Senha"
+        type="password"
+        [control]="form.controls['senha']"
+      />
+      <app-input
+        label="Conf. Senha"
+        type="password"
+        [control]="form.controls['confSenha']"
+      />
+
       <app-button
         expanded="false"
         [loading]="login.loading"
@@ -14,9 +32,9 @@
       />
     </form>
     <div class="bottom">
-      <a href="/novaconta" mat-button>
-        <mat-icon>add</mat-icon>
-        Nova conta
+      <a href="/login" mat-button>
+        <mat-icon>arrow_left</mat-icon>
+        voltar
       </a>
     </div>
   </div>

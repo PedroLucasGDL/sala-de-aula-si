@@ -1,26 +1,19 @@
 <div class="geral">
   <div class="formulario">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Email:</mat-label>
-        <input type="email" matInput placeholder="Ex. aluno@iffar.edu.br" />
+    <form [formGroup]="form">
+      <app-input label="E-mail" [control]="form.controls['email']" />
+      <app-input
+        label="Senha"
+        type="password"
+        [control]="form.controls['senha']"
+      />
 
-        <mat-error>Endereço de e-email inválido</mat-error>
-
-        <mat-error>Email is <strong>Campo obrigatório</strong></mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Senha:</mat-label>
-        <input type="password" matInput />
-
-        <mat-error>A senha deve ter 6 caracteres</mat-error>
-
-        <mat-error><strong>Campo obrigatório</strong></mat-error>
-      </mat-form-field>
-      <button mat-fab extended>
-        <mat-icon>login</mat-icon>
-        Entrar
-      </button>
+      <app-button
+        label="Entrar"
+        [loading]="login.loading"
+        icon="login"
+        (onClick)="entrar()"
+      ></app-button>
     </form>
     <div class="bottom">
       <a href="/novaconta" mat-button>

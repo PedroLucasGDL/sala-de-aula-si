@@ -3,12 +3,20 @@
   <input
     [type]="type"
     matInput
-    placeholder="Ex. aluno@iffar.edu.br"
-    formControlName="email"
+    [placeholder]="placeholder"
+    [formControl]="$any(control)"
   />
-  <!-- @if ( form.get('email')?.errors?.['required'] ) { -->
-  <mat-error><strong>Campo obrigatório</strong></mat-error>
-  <!-- } @if ( form.get('email')?.errors?.['email'] ) { -->
-  <mat-error>Endereço de e-email inválido</mat-error>
-  <!-- } -->
+  @if ( control.errors?.['required'] ) {
+  <mat-error
+    ><strong> {{ erros.get("required") }} </strong></mat-error
+  >
+  } @if ( control.errors?.['email'] ) {
+  <mat-error
+    ><strong>{{ erros.get("email") }}</strong></mat-error
+  >
+  } @if ( control.errors?.['minlength'] ) {
+  <mat-error
+    ><strong>{{ erros.get("minlength") }}</strong></mat-error
+  >
+  }
 </mat-form-field>
