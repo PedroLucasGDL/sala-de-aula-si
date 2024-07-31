@@ -8,12 +8,16 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { env } from '../environments/environment';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(env.firebaseConfig)),
     provideAuth(() => getAuth()),
-    { provide: FIREBASE_OPTIONS, useValue: env.firebaseConfig }, provideAnimationsAsync(),
+    provideFirestore(() => getFirestore()),
+    { provide: FIREBASE_OPTIONS, useValue: env.firebaseConfig },
+    provideAnimationsAsync(),
   ],
 };

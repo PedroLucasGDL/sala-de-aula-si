@@ -1,1 +1,6 @@
-<p>home works!</p>
+<ol>
+  <li *ngFor="let aluno of alunos | async">
+    {{ aluno.nome }} - {{ aluno.idade }}
+    {{ aluno.sobrenome }}
+  </li>
+</ol>

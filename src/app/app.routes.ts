@@ -4,10 +4,12 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { authGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AlunoComponent } from './pages/aluno/aluno.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'novaconta', component: CadastroComponent },
   { path: 'inicio', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'aluno', component: AlunoComponent, canActivate: [authGuard] },
   { path: '***', component: NotFoundComponent },
 ];

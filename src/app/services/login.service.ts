@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { consumerBeforeComputation } from '@angular/core/primitives/signals';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
@@ -6,8 +7,14 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class LoginService {
   private _loading: boolean = false;
+  private _usuarioLogado: any;
 
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth) {
+    auth.authState.subscribe((user) => {
+      this._usuarioLogado = user;
+      console.log('current user', user);
+    });
+  }
 
   async criarNovaConta(email: string, senha: string, nome: string) {
     console.log('criando novo usuairo');
@@ -39,7 +46,9 @@ export class LoginService {
   public get loading() {
     return this._loading;
   }
-  public isLoggin() {
-    return this.auth.currentUser != null;
+  public async isLogado() {
+    console.log(this.auth.currentUser);
+    this._usuarioLogado = await this.auth.authState;
+    return this._usuarioLogado != null;
   }
 }

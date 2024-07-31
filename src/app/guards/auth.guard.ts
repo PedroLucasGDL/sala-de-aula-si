@@ -4,5 +4,5 @@ import { LoginService } from '../services/login.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const login = inject(LoginService);
-  return login.isLoggin();
+  return login.isLogado();
 };
