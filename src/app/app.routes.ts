@@ -13,5 +13,7 @@ export const routes: Routes = [
   { path: 'novaconta', component: CadastroComponent },
   { path: 'inicio', component: HomeComponent, canActivate: [authGuard] },
   { path: 'aluno', component: AlunoComponent, canActivate: [authGuard] },
+  { path: 'aluno/:chave', component: AlunoComponent, canActivate: [authGuard] },
+
   { path: '**', component: NotFoundComponent },
 ];

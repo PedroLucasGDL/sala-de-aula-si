@@ -1,6 +1,14 @@
 <ol>
   <li *ngFor="let aluno of alunos | async">
-    {{ aluno.nome }} - {{ aluno.idade }}
-    {{ aluno.sobrenome }}
+    {{ aluno.nome }} {{ aluno.sobrenome }} - {{ aluno.idade }}
+    
+    <button mat-button (click)="atualizarAluno(aluno.IDaluno)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    
+    <button mat-button (click)="apagarAluno(aluno.IDaluno)">Excluir</button>
+    
   </li>
 </ol>
+
+<a href="/aluno" mat-button> Novo</a>

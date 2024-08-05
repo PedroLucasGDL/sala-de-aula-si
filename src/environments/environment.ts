@@ -1,12 +1,11 @@
 // Your web app's Firebase configuration
 export const env = {
   firebaseConfig: {
-    apiKey: 'AIzaSyCFO7A4Up9gQ6srzdtwgRSVLghwOxLl5wc',
-    authDomain: 'saladeaula-d3d40.firebaseapp.com',
-    databaseURL: 'https://saladeaula-d3d40-default-rtdb.firebaseio.com',
-    projectId: 'saladeaula-d3d40',
-    storageBucket: 'saladeaula-d3d40.appspot.com',
-    messagingSenderId: '882336392778',
-    appId: '1:882336392778:web:86c4238959ea05a2d5e8b3',
+    apiKey: "AIzaSyDLeXS1B6GL4rThfn1N-LTiSBjUlsAPVB0",
+  authDomain: "saladeaula-e02d9.firebaseapp.com",
+  projectId: "saladeaula-e02d9",
+  storageBucket: "saladeaula-e02d9.appspot.com",
+  messagingSenderId: "853424140740",
+  appId: "1:853424140740:web:2c42ff6af4486d02f1b491"
   },
 };
