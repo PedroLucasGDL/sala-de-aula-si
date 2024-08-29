@@ -13,11 +13,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbarModule],
+  imports: [RouterOutlet, MatToolbarModule, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

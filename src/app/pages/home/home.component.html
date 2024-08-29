@@ -1,14 +1,24 @@
-<ol>
-  <li *ngFor="let aluno of alunos | async">
-    {{ aluno.nome }} {{ aluno.sobrenome }} - {{ aluno.idade }}
+<div class="recommendation" *ngIf="api">
+  <p>Recomendação de gênero musical: {{api}}</p>
+</div>
+
+<ol class="music-list">
+  <li *ngFor="let musica of alunos | async" class="music-item">
+    <div class="music-info">
+      <span>Nome: {{ musica.nome }}</span><br>
+      <span>Gênero: {{ musica.sobrenome }}</span><br>
+      <span>Duração: {{ musica.idade | minutos }}</span><br>
+    </div>
     
-    <button mat-button (click)="atualizarAluno(aluno.IDaluno)">
-      <mat-icon>edit</mat-icon>
-    </button>
-    
-    <button mat-button (click)="apagarAluno(aluno.IDaluno)">Excluir</button>
-    
+    <div class="music-actions">
+      <button mat-button (click)="atualizarAluno(musica.chave)">
+        <mat-icon>edit</mat-icon>
+      </button>    
+      <button mat-button (click)="apagarAluno(musica.chave)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </li>
 </ol>
 
-<a href="/aluno" mat-button> Novo</a>
+<a href="/aluno" mat-button class="new-button">Nova musica</a>

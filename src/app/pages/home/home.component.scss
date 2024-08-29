@@ -1,0 +1,51 @@
+.recommendation {
+    background-color: #f0f8ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .music-list {
+    list-style-type: none;
+    padding: 0;
+  
+    .music-item {
+      background-color: #e6e6fa;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .music-info {
+        flex: 1;
+        span {
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+  
+      .music-actions {
+        button {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  
+  .new-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+  
